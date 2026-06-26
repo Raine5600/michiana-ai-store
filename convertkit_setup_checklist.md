@@ -60,4 +60,4 @@ Form → **Settings** → **Incentive / After subscribe**:
 | Kit $97 | https://rainecloud0.gumroad.com/l/znalyo |
 | Bundle $147 | https://rainecloud0.gumroad.com/l/ucvdgis |
 
-**Subscriber discount code:** `BUNDLE20` (create in Gumroad → Offer codes)
+**Subscriber discount code:** `BUNDLE20` — ✅ created (20% off Ultimate Bundle)
