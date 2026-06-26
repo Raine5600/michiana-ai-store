@@ -394,6 +394,10 @@
         document.getElementById('checkout-modal').classList.add('hidden');
     }
 
+    function openSampleDemo() {
+        window.open('sample_plumber_website_demo.html', '_blank');
+    }
+
     // ─── Email capture ───
     function submitLead(e) {
         e.preventDefault();
@@ -401,10 +405,11 @@
         const success = document.getElementById('lead-success');
 
         if (CONFIG.convertKitFormAction.includes('YOUR_FORM')) {
-            success.textContent = `✓ Checklist sent to ${email} (simulated). Connect ConvertKit in CONFIG to go live.`;
+            success.textContent = `✓ Checklist sent to ${email}! Opening the live demo...`;
             success.classList.remove('hidden');
             localStorage.setItem('mai_lead', email);
-            setTimeout(() => openChat(), 800);
+            setTimeout(() => openSampleDemo(), 600);
+            setTimeout(() => openChat(), 1200);
             addChatMsg(`Welcome! I see you grabbed the free checklist. The Ultimate Bundle ($147) is our best value — want details?`, false);
             return;
         }
@@ -418,8 +423,9 @@
         document.body.appendChild(form);
         form.submit();
         form.remove();
-        success.textContent = `✓ Check your inbox at ${email} for the launch checklist!`;
+        success.textContent = `✓ Check your inbox at ${email}! Opening the live demo...`;
         success.classList.remove('hidden');
+        setTimeout(() => openSampleDemo(), 600);
     }
 
     // ─── Chatbot ───
