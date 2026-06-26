@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michiana AI Solutions — Automated Digital Product Store</title>
+    <meta name="description" content="Self-serve AI business launch kits for local service entrepreneurs. Instant delivery, automated sales, built with Grok.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading { font-family: 'Poppins', sans-serif; }
+        .section-header { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.025em; }
+        .product-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); }
+        .chat-bubble { max-width: 85%; }
+        .playbook-step[open] summary { color: #34d399; }
+        .playbook-step summary { cursor: pointer; list-style: none; }
+        .playbook-step summary::-webkit-details-marker { display: none; }
+        @keyframes pulse-ring { 0%,100%{opacity:1} 50%{opacity:.5} }
+        .pulse-dot { animation: pulse-ring 2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased">
+
+    <!-- Nav -->
+    <nav class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-18 py-4">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-rocket text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-tight">Michiana AI</span>
+                        <span class="text-emerald-400 font-semibold text-xl"> Solutions</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-1 text-sm">
+                    <a href="#products" class="px-4 py-2 hover:text-white text-slate-400 transition-colors">Products</a>
+                    <a href="#email-capture" class="px-4 py-2 hover:text-white text-slate-400 transition-colors">Free Guide</a>
+                    <a href="#demo" class="px-4 py-2 hover:text-white text-slate-400 transition-colors">Live Demo</a>
+                    <a href="#automation" class="px-4 py-2 hover:text-white text-slate-400 transition-colors">Automation</a>
+                    <button onclick="openChat()" class="ml-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-robot text-sm"></i> Ask AI
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-5xl mx-auto px-6 pt-14 pb-10 text-center">
+        <div class="inline-flex items-center gap-2 bg-emerald-950/50 border border-emerald-800/60 px-4 py-1.5 rounded-full mb-6 text-sm">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></div>
+            <span>Automated storefront • Built with Grok • Set &amp; forget ready</span>
+        </div>
+        <h1 class="section-header heading">Sell AI Launch Kits<br><span class="text-emerald-400">While You Sleep</span></h1>
+        <p class="mt-5 text-lg text-slate-400 max-w-2xl mx-auto">Self-serve checkout, instant file delivery, email nurture, and upsell paths — all pre-wired. Connect Gumroad + ConvertKit and go live in one afternoon.</p>
+        <div class="flex flex-wrap justify-center gap-3 mt-8">
+            <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full text-base transition-all">
+                Shop Digital Kits
+            </button>
+            <button onclick="document.getElementById('automation').scrollIntoView({behavior:'smooth'})" class="px-8 py-3.5 border border-slate-600 hover:border-emerald-600 hover:bg-slate-900 font-semibold rounded-full text-base transition-all">
+                View Automation Playbook
+            </button>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-6 text-xs text-slate-500">
+            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Gumroad-ready checkout</span>
+            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Auto file delivery</span>
+            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> 5-email nurture sequence</span>
+            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> AI sales chatbot included</span>
+        </div>
+    </header>
+
+    <!-- Products -->
+    <section id="products" class="max-w-7xl mx-auto px-6 pb-16">
+        <div class="text-center mb-10">
+            <span class="text-emerald-400 font-semibold tracking-widest text-xs uppercase">Self-Serve Digital Products</span>
+            <h2 class="section-header heading mt-2">Instant Access Kits</h2>
+            <p class="text-slate-400 mt-3 max-w-lg mx-auto text-sm">One-click purchase → automated delivery. All files from your Grok launch session included.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5" id="product-grid"></div>
+
+        <!-- Bundle upsell -->
+        <div class="product-card bg-gradient-to-r from-emerald-950/80 to-slate-900 border-2 border-emerald-600/50 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="text-xs font-bold tracking-widest bg-emerald-500 text-slate-950 px-3 py-1 rounded-full">BEST VALUE — ONE-CLICK UPSELL</span>
+                <h3 class="heading font-bold text-2xl mt-3">Ultimate Bundle — All 3 Kits</h3>
+                <p class="text-slate-400 text-sm mt-2 max-w-xl">Complete Launch Kit + Chatbot Prompts + Website Starter + Automation Playbook. Save $64 vs buying separately.</p>
+            </div>
+            <div class="text-center md:text-right shrink-0">
+                <div class="text-4xl font-bold text-emerald-400">$147</div>
+                <div class="text-sm text-slate-500 line-through">$211 separately</div>
+                <button onclick="startCheckout('bundle')" class="mt-4 px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-full transition-all w-full md:w-auto">
+                    Get the Bundle
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section id="email-capture" class="bg-slate-900 border-y border-slate-800 py-14">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">Lead Magnet + Nurture</span>
+            <h2 class="section-header heading mt-2">Free AI Launch Checklist</h2>
+            <p class="text-slate-400 mt-3 text-sm">Get the 5-step checklist + live demo link. Enters your 5-email automated nurture sequence (ConvertKit / MailerLite).</p>
+
+            <form id="lead-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="submitLead(event)">
+                <input type="email" id="lead-email" required placeholder="you@email.com"
+                       class="flex-1 bg-slate-800 border border-slate-600 px-5 py-3.5 rounded-full text-sm focus:outline-none focus:border-emerald-500">
+                <button type="submit" class="px-7 py-3.5 bg-white text-slate-950 font-bold rounded-full text-sm hover:bg-slate-100 transition-all shrink-0">
+                    Send Me the Checklist
+                </button>
+            </form>
+            <p id="lead-success" class="hidden mt-4 text-emerald-400 text-sm font-medium"></p>
+
+            <details class="mt-8 text-left bg-slate-950 border border-slate-700 rounded-2xl p-5 text-sm">
+                <summary class="font-semibold text-slate-300 cursor-pointer">Preview: 5-email nurture sequence</summary>
+                <ol class="mt-4 space-y-2 text-slate-400 list-decimal list-inside text-xs leading-relaxed">
+                    <li><strong class="text-slate-300">Day 0:</strong> Deliver checklist + plumber demo link</li>
+                    <li><strong class="text-slate-300">Day 1:</strong> "3 local businesses earning with AI chatbots" → Prompts Pack ($47)</li>
+                    <li><strong class="text-slate-300">Day 3:</strong> Demo walkthrough case study → Website Starter ($67)</li>
+                    <li><strong class="text-slate-300">Day 5:</strong> "How to sell on Fiverr" + gig text snippet → Complete Kit ($97)</li>
+                    <li><strong class="text-slate-300">Day 7:</strong> Bundle urgency + discount code BUNDLE20 → Ultimate Bundle ($147)</li>
+                </ol>
+            </details>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section id="demo" class="max-w-6xl mx-auto px-6 py-14">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">Client Pitch Demo</span>
+                <h2 class="section-header heading mt-2">Live Plumber Website + Chatbot</h2>
+                <p class="text-slate-400 mt-4 text-sm leading-relaxed">Fully functional HTML demo from your kit. Use in sales calls, Fiverr portfolio, or cold outreach. Chat simulates real booking flows.</p>
+                <a href="sample_plumber_website_demo.html" target="_blank"
+                   class="inline-flex items-center gap-3 mt-6 px-7 py-3.5 bg-white text-slate-950 font-bold rounded-full hover:bg-slate-100 transition-all text-sm">
+                    Open Interactive Demo <i class="fa-solid fa-external-link-alt"></i>
+                </a>
+            </div>
+            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center"><i class="fa-solid fa-robot text-white"></i></div>
+                    <div>
+                        <div class="font-semibold text-sm">ABC Plumbing AI Assistant</div>
+                        <div class="text-emerald-400 text-xs">Demo mode • Grok-powered prompt</div>
+                    </div>
+                </div>
+                <div class="space-y-2 text-xs">
+                    <div class="bg-slate-800 px-4 py-2.5 rounded-2xl max-w-[90%]">Kitchen sink leaking — can someone come today?</div>
+                    <div class="bg-emerald-600 px-4 py-2.5 rounded-2xl ml-auto max-w-[90%] text-white">Typical repair $149–$279. Same-day at 2:15pm or 4:45pm — which works?</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Playbook -->
+    <section id="automation" class="bg-slate-900 border-t border-slate-800 py-14">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">Set &amp; Forget</span>
+                <h2 class="section-header heading mt-2">Automation Playbook</h2>
+                <p class="text-slate-400 mt-3 text-sm">Connect these tools once. Full guides: <a href="automation_playbook.md" class="text-emerald-400 underline">Tech setup</a> · <a href="automated_sales_marketing_plan.md" class="text-emerald-400 underline">Sales &amp; marketing plan</a> · <a href="grok_command_playbook.md" class="text-emerald-400 underline">Grok commands</a></p>
+            </div>
+
+            <div class="space-y-3 text-sm">
+                <details class="playbook-step bg-slate-950 border border-slate-700 rounded-2xl p-5" open>
+                    <summary class="font-semibold flex items-center justify-between">
+                        <span><i class="fa-solid fa-1 text-emerald-400 mr-2"></i> Host storefront on Vercel (15 min)</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs"></i>
+                    </summary>
+                    <p class="mt-3 text-slate-400 text-xs leading-relaxed">Rename this file to <code class="text-emerald-300">index.html</code>, add kit files to same folder, push to GitHub, connect Vercel. Update <code class="text-emerald-300">CONFIG</code> in the script with your Gumroad + ConvertKit URLs.</p>
+                </details>
+                <details class="playbook-step bg-slate-950 border border-slate-700 rounded-2xl p-5">
+                    <summary class="font-semibold flex items-center justify-between">
+                        <span><i class="fa-solid fa-2 text-emerald-400 mr-2"></i> Gumroad products + auto-delivery (30 min)</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs"></i>
+                    </summary>
+                    <p class="mt-3 text-slate-400 text-xs leading-relaxed">Create 4 products ($47, $67, $97, $147 bundle). Attach zip files. Gumroad emails download links automatically after payment. Paste product URLs into CONFIG.</p>
+                </details>
+                <details class="playbook-step bg-slate-950 border border-slate-700 rounded-2xl p-5">
+                    <summary class="font-semibold flex items-center justify-between">
+                        <span><i class="fa-solid fa-3 text-emerald-400 mr-2"></i> ConvertKit nurture sequence (45 min)</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs"></i>
+                    </summary>
+                    <p class="mt-3 text-slate-400 text-xs leading-relaxed">5-email sequence over 7 days (preview above). Connect form action to CONFIG.convertKitFormAction. Tag subscribers "launch-kit-lead".</p>
+                </details>
+                <details class="playbook-step bg-slate-950 border border-slate-700 rounded-2xl p-5">
+                    <summary class="font-semibold flex items-center justify-between">
+                        <span><i class="fa-solid fa-4 text-emerald-400 mr-2"></i> Zapier: sales → spreadsheet + alerts (30 min)</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs"></i>
+                    </summary>
+                    <p class="mt-3 text-slate-400 text-xs leading-relaxed">Gumroad New Sale → Google Sheets row + optional Gmail thank-you. ConvertKit New Subscriber → Slack/email alert. Test with a $0 product first.</p>
+                </details>
+                <details class="playbook-step bg-slate-950 border border-slate-700 rounded-2xl p-5">
+                    <summary class="font-semibold flex items-center justify-between">
+                        <span><i class="fa-solid fa-5 text-emerald-400 mr-2"></i> Production chatbot (Chatbase / Grok API)</span>
+                        <i class="fa-solid fa-chevron-down text-slate-500 text-xs"></i>
+                    </summary>
+                    <p class="mt-3 text-slate-400 text-xs leading-relaxed">Adapt <code class="text-emerald-300">chatbot_system_prompts.md</code> for Michiana AI sales. Deploy on Chatbase.co and replace this page's demo widget with the embed script.</p>
+                </details>
+            </div>
+
+            <div class="mt-8 p-5 bg-emerald-950/30 border border-emerald-800/50 rounded-2xl text-center text-sm">
+                <div class="font-semibold text-emerald-300">Post-setup time commitment: ~30 min/week</div>
+                <div class="text-slate-400 text-xs mt-1">Review sales sheet, respond to custom service inquiries ($499+ Fiverr packages) only.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service upsell -->
+    <section class="max-w-4xl mx-auto px-6 py-14 text-center">
+        <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase">Semi-Automated Service Layer</span>
+        <h2 class="heading font-bold text-2xl mt-2">Done-For-You Client Builds</h2>
+        <p class="text-slate-400 text-sm mt-3 max-w-lg mx-auto">Digital products sell themselves. For $499–$999 custom website + chatbot builds, use the Fiverr gig in your kit.</p>
+        <a href="fiverr_gig_and_outreach_kit.md" class="inline-block mt-5 text-emerald-400 text-sm font-semibold hover:underline">Open Fiverr + Outreach Kit →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-10 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Michiana AI Solutions — Cameron Rainey</p>
+        <p class="mt-2">Built with Grok • <a href="automated_sales_marketing_plan.md" class="text-slate-400 hover:text-emerald-400">Sales Plan</a> • <a href="lead_magnet_checklist.md" class="text-slate-400 hover:text-emerald-400">Free Checklist</a> • <a href="grok_command_playbook.md" class="text-slate-400 hover:text-emerald-400">Grok Commands</a></p>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-black/75 z-[200] flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-7 my-8">
+            <div id="checkout-content"></div>
+            <div id="checkout-actions" class="mt-5 flex gap-3"></div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="hidden fixed bottom-5 right-5 w-[calc(100%-2.5rem)] max-w-sm bg-slate-900 border border-slate-700 shadow-2xl rounded-3xl overflow-hidden z-[300]">
+        <div class="bg-slate-800 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-emerald-500 rounded-xl flex items-center justify-center"><i class="fa-solid fa-robot text-white text-sm"></i></div>
+                <div>
+                    <div class="font-semibold text-sm">Michiana AI Sales Bot</div>
+                    <div class="text-emerald-400 text-[10px]">24/7 • Demo mode</div>
+                </div>
+            </div>
+            <button onclick="closeChat()" class="text-xl text-slate-400 hover:text-white leading-none">&times;</button>
+        </div>
+        <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3 text-sm bg-slate-950"></div>
+        <div class="p-3 border-t border-slate-700 flex gap-2">
+            <input id="chat-input" type="text" placeholder="Ask about kits, pricing, automation..."
+                   class="flex-1 bg-slate-800 border border-slate-600 px-4 py-2.5 text-sm rounded-full focus:outline-none focus:border-emerald-500"
+                   onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()" class="bg-emerald-600 hover:bg-emerald-700 w-10 rounded-full flex items-center justify-center text-white shrink-0">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    // ─── CONFIG: Update these when going live ───
+    const CONFIG = {
+        gumroadLinks: {
+            kit:      'https://rainecloud0.gumroad.com/l/znalyo',    // $97
+            prompts:  'https://rainecloud0.gumroad.com/l/xpsfz',    // $47
+            website:  'https://rainecloud0.gumroad.com/l/jdyetn',    // $67
+            bundle:   'https://rainecloud0.gumroad.com/l/ucvdgis'   // $147
+        },
+        convertKitFormAction: 'https://app.convertkit.com/forms/YOUR_FORM_ID/subscriptions',
+        deliveryFolderUrl: 'https://drive.google.com/drive/folders/YOUR_FOLDER_ID',
+        useSimulatedCheckout: false
+    };
+
+    const PRODUCTS = {
+        kit:     { id:'kit',     name:'Complete AI Business Launch Kit 2026', price:97,  badge:'BESTSELLER', files:['Business plan','Outreach kit','All prompts','Automation playbook'], desc:'Everything from your Grok session — business plan, 50+ chatbot prompts, outreach kit, sample website, and automation playbook.' },
+        prompts: { id:'prompts', name:'50 AI Chatbot Prompts Pack',           price:47,  badge:null,         files:['chatbot_system_prompts.md'], desc:'Copy-paste prompts for plumbers, dentists, trades & more. Deploy on Chatbase, Grok API, or Botpress in minutes.' },
+        website: { id:'website', name:'AI Website + Chatbot Starter Pack',    price:67,  badge:'LIVE DEMO',  files:['sample_plumber_website_demo.html','System prompt'], desc:'Fully functional plumber demo site + customizable templates. White-label for client pitches.' },
+        bundle:  { id:'bundle',  name:'Ultimate Bundle (All 3 Kits)',         price:147, badge:'SAVE $64',   files:['All kit files + playbook'], desc:'Complete Kit + Prompts + Website Starter + Automation Playbook. Best value.' }
+    };
+
+    let cartProduct = null;
+    let chatReady = false;
+
+    // ─── Product grid ───
+    function renderProducts() {
+        const grid = document.getElementById('product-grid');
+        const order = ['kit','prompts','website'];
+        grid.innerHTML = order.map(key => {
+            const p = PRODUCTS[key];
+            return `
+            <div class="product-card bg-slate-900 border border-slate-700 rounded-3xl p-6 flex flex-col">
+                ${p.badge ? `<span class="text-[10px] font-bold tracking-widest bg-emerald-900 text-emerald-300 px-2.5 py-1 rounded-full w-fit">${p.badge}</span>` : ''}
+                <h3 class="font-semibold text-lg mt-3 leading-snug">${p.name}</h3>
+                <p class="text-slate-400 text-xs mt-2 flex-1 leading-relaxed">${p.desc}</p>
+                <div class="mt-4 flex items-center justify-between">
+                    <div class="text-2xl font-bold">$${p.price}</div>
+                    <button onclick="startCheckout('${key}')" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-full text-sm transition-all">
+                        Buy Now
+                    </button>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // ─── Checkout with upsell ───
+    function startCheckout(key) {
+        cartProduct = PRODUCTS[key];
+        const modal = document.getElementById('checkout-modal');
+        const content = document.getElementById('checkout-content');
+        const actions = document.getElementById('checkout-actions');
+
+        const showUpsell = key !== 'bundle';
+        const upsellHtml = showUpsell ? `
+            <div class="mt-4 p-4 bg-emerald-950/40 border border-emerald-700/50 rounded-2xl text-sm">
+                <div class="font-semibold text-emerald-300 text-xs uppercase tracking-wide mb-1">One-click upsell</div>
+                <p class="text-slate-300 text-xs">Upgrade to the <strong>Ultimate Bundle ($147)</strong> and get everything — save $${211 - cartProduct.price} vs adding later.</p>
+                <button onclick="startCheckout('bundle')" class="mt-2 text-emerald-400 text-xs font-bold hover:underline">Switch to Bundle →</button>
+            </div>` : '';
+
+        if (CONFIG.useSimulatedCheckout) {
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-emerald-900/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-cart-shopping text-emerald-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl">${cartProduct.name}</h3>
+                    <div class="text-3xl font-bold mt-1">$${cartProduct.price}</div>
+                    <ul class="mt-4 text-left text-xs text-slate-400 space-y-1.5">
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Instant automated delivery</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Commercial license included</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Lifetime updates</li>
+                    </ul>
+                    ${upsellHtml}
+                    <div class="mt-5 p-4 bg-slate-800 rounded-2xl text-left text-xs text-slate-400">
+                        <div class="font-semibold text-slate-300 mb-2"><i class="fa-solid fa-plug text-emerald-400 mr-1"></i> Go live: connect Gumroad</div>
+                        <ol class="list-decimal list-inside space-y-1 leading-relaxed">
+                            <li>Create product on <strong>gumroad.com</strong> at $${cartProduct.price}</li>
+                            <li>Attach files: ${cartProduct.files.join(', ')}</li>
+                            <li>Paste URL into <code class="text-emerald-300">CONFIG.gumroadLinks.${key}</code></li>
+                            <li>Set <code class="text-emerald-300">useSimulatedCheckout: false</code></li>
+                        </ol>
+                    </div>
+                </div>`;
+            actions.innerHTML = `
+                <button onclick="closeCheckout()" class="flex-1 py-3 border border-slate-600 rounded-full font-semibold text-sm">Cancel</button>
+                <button onclick="simulatePurchase()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-full font-bold text-sm">Simulate Purchase</button>`;
+        } else {
+            content.innerHTML = `
+                <div class="text-center">
+                    <h3 class="font-bold text-xl">${cartProduct.name}</h3>
+                    <div class="text-3xl font-bold mt-1">$${cartProduct.price}</div>
+                    ${upsellHtml}
+                    <p class="text-slate-400 text-xs mt-4">Secure checkout via Gumroad. Files delivered instantly to your email.</p>
+                </div>`;
+            actions.innerHTML = `
+                <button onclick="closeCheckout()" class="flex-1 py-3 border border-slate-600 rounded-full font-semibold text-sm">Cancel</button>
+                <a href="${CONFIG.gumroadLinks[key]}" target="_blank" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-full font-bold text-sm text-center flex items-center justify-center">
+                    Checkout on Gumroad
+                </a>`;
+        }
+        modal.classList.remove('hidden');
+    }
+
+    function simulatePurchase() {
+        const content = document.getElementById('checkout-content');
+        const actions = document.getElementById('checkout-actions');
+        const fileLinks = {
+            kit: ['Michiana_AI_Solutions_Business_Plan.md','fiverr_gig_and_outreach_kit.md','chatbot_system_prompts.md','automation_playbook.md'],
+            prompts: ['chatbot_system_prompts.md'],
+            website: ['sample_plumber_website_demo.html','chatbot_system_prompts.md'],
+            bundle: ['Michiana_AI_Solutions_Business_Plan.md','fiverr_gig_and_outreach_kit.md','chatbot_system_prompts.md','sample_plumber_website_demo.html','automation_playbook.md','automated_sales_marketing_plan.md','grok_command_playbook.md','email_nurture_sequence.md','weekly_content_calendar.md','outreach_execution_pack.md','lead_magnet_checklist.md']
+        };
+        const files = fileLinks[cartProduct.id] || [];
+        content.innerHTML = `
+            <div class="text-center py-2">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-5xl mb-3"></i>
+                <h3 class="font-bold text-xl">Purchase Complete!</h3>
+                <p class="text-emerald-300 text-sm mt-2">${cartProduct.name}</p>
+                <div class="mt-5 p-4 bg-slate-800 rounded-2xl text-left text-xs">
+                    <div class="font-semibold text-slate-300 mb-2">Automated delivery (simulated):</div>
+                    <p class="text-slate-400 mb-2">In production, Gumroad emails these files instantly. Access now:</p>
+                    <ul class="space-y-1">${files.map(f => `<li><a href="${f}" class="text-emerald-400 hover:underline" download>${f}</a></li>`).join('')}</ul>
+                </div>
+                ${cartProduct.id !== 'bundle' ? `
+                <div class="mt-4 p-3 bg-emerald-950/50 border border-emerald-700/40 rounded-xl text-xs text-left">
+                    <strong class="text-emerald-300">Post-purchase upsell:</strong> Add the Ultimate Bundle for just $${147 - cartProduct.price} more?
+                    <button onclick="startCheckout('bundle')" class="block mt-1 text-emerald-400 font-bold hover:underline">Upgrade to Bundle →</button>
+                </div>` : ''}
+            </div>`;
+        actions.innerHTML = `<button onclick="closeCheckout()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 rounded-full font-bold text-sm">Done</button>`;
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    // ─── Email capture ───
+    function submitLead(e) {
+        e.preventDefault();
+        const email = document.getElementById('lead-email').value.trim();
+        const success = document.getElementById('lead-success');
+
+        if (CONFIG.convertKitFormAction.includes('YOUR_FORM')) {
+            success.textContent = `✓ Checklist sent to ${email} (simulated). Connect ConvertKit in CONFIG to go live.`;
+            success.classList.remove('hidden');
+            localStorage.setItem('mai_lead', email);
+            setTimeout(() => openChat(), 800);
+            addChatMsg(`Welcome! I see you grabbed the free checklist. The Ultimate Bundle ($147) is our best value — want details?`, false);
+            return;
+        }
+        const form = document.createElement('form');
+        form.action = CONFIG.convertKitFormAction;
+        form.method = 'POST';
+        form.target = '_blank';
+        const input = document.createElement('input');
+        input.type = 'hidden'; input.name = 'email_address'; input.value = email;
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+        form.remove();
+        success.textContent = `✓ Check your inbox at ${email} for the launch checklist!`;
+        success.classList.remove('hidden');
+    }
+
+    // ─── Chatbot ───
+    function openChat() {
+        document.getElementById('chat-widget').classList.remove('hidden');
+        if (!chatReady) { initChat(); chatReady = true; }
+    }
+    function closeChat() { document.getElementById('chat-widget').classList.add('hidden'); }
+
+    function addChatMsg(text, isUser) {
+        const box = document.getElementById('chat-messages');
+        const row = document.createElement('div');
+        row.className = `flex ${isUser ? 'justify-end' : ''}`;
+        row.innerHTML = `<div class="chat-bubble px-3.5 py-2 rounded-2xl text-xs leading-relaxed ${isUser ? 'bg-emerald-600 text-white' : 'bg-slate-800 border border-slate-700'}">${text}</div>`;
+        box.appendChild(row);
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function initChat() {
+        addChatMsg("Hi! I'm the Michiana AI sales assistant. I can help with kit pricing, the automation setup, live demo, or which product fits your goals. What are you looking to launch?");
+    }
+
+    function sendChat() {
+        const input = document.getElementById('chat-input');
+        const text = input.value.trim();
+        if (!text) return;
+        addChatMsg(text, true);
+        input.value = '';
+        setTimeout(() => {
+            const l = text.toLowerCase();
+            let r;
+            if (l.match(/price|cost|how much|\$/)) {
+                r = "Complete Kit <strong>$97</strong> • Prompts <strong>$47</strong> • Website Starter <strong>$67</strong> • <strong>Ultimate Bundle $147</strong> (saves $64). Want me to open checkout for one?";
+            } else if (l.match(/bundle|upsell|best|deal/)) {
+                r = "The Ultimate Bundle ($147) includes everything — business plan, all prompts, demo website, outreach kit, and automation playbook. <button onclick='startCheckout(\"bundle\");closeChat()' class='text-emerald-400 font-bold'>Get Bundle →</button>";
+            } else if (l.match(/automate|gumroad|zapier|convertkit|setup|playbook/)) {
+                r = "Scroll to the <strong>Automation Playbook</strong> section or open <code>automation_playbook.md</code>. Setup takes ~2 hours: Vercel + Gumroad + ConvertKit + Zapier. Then it runs itself.";
+            } else if (l.match(/demo|website|plumber|chatbot/)) {
+                r = "Open <a href='sample_plumber_website_demo.html' target='_blank' class='text-emerald-400 underline'>sample_plumber_website_demo.html</a> — fully interactive booking chat. Perfect for client pitches.";
+            } else if (l.match(/email|nurture|sequence|checklist|free/)) {
+                r = "Grab the free AI Launch Checklist in the email section — triggers a 5-email nurture sequence over 7 days, each pitching a different kit. Fully automated via ConvertKit.";
+            } else if (l.match(/fiverr|service|client|499|799/)) {
+                r = "For done-for-you client builds ($499–$999), open <code>fiverr_gig_and_outreach_kit.md</code>. Digital kits sell themselves; services need your delivery using the templates.";
+            } else if (l.match(/buy|purchase|checkout|get/)) {
+                r = "Which kit? Say <em>kit</em>, <em>prompts</em>, <em>website</em>, or <em>bundle</em> and I'll open checkout.";
+            } else if (l.match(/\b(kit|prompts|website|bundle)\b/)) {
+                const key = l.includes('bundle') ? 'bundle' : l.includes('prompt') ? 'prompts' : l.includes('website') ? 'website' : 'kit';
+                startCheckout(key);
+                r = `Opening checkout for <strong>${PRODUCTS[key].name}</strong> ($${PRODUCTS[key].price})...`;
+            } else {
+                r = "I can help with pricing, the live demo, automation setup, email nurture, or Fiverr services. What would you like to know?";
+            }
+            addChatMsg(r, false);
+        }, 500);
+    }
+
+    // ─── Boot ───
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { closeCheckout(); closeChat(); }
+    });
+    renderProducts();
+    </script>
+</body>
+</html>
