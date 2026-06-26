@@ -107,30 +107,30 @@ Watch it:
 ## Email 4 — Day 5
 
 **Subject:** "I don't know how to sell this" (read this)  
-**Preview:** The Fiverr gig is already written for you
+**Preview:** Pinterest + SEO beats cold calls every time
 
 Hi,
 
-Most people stall here — not on building, but on **selling**.
+Most people stall here — not on building, but on **getting traffic**.
 
-Good news: the hard part is done.
+Good news: you don't need sales calls for digital products.
 
-**Option 1 — Fiverr (global, passive inbound):**  
-Copy-paste the pre-written gig from the Complete Launch Kit. Post it. Buyers come to you.
+**Option 1 — Pinterest (set & forget):**  
+Pin product mockups from the weekly content calendar. Link to your Gumroad page. One pin can bring buyers for months.
 
-**Option 2 — Local outreach (faster first $):**  
-Google "[plumber] South Bend." Find 10 with bad or no websites. Send the cold email template. Attach the demo link.
+**Option 2 — SEO / blog posts:**  
+One "AI chatbot for plumbers" article can rank for years. The kit includes post templates.
 
-**Option 3 — Digital products (zero calls):**  
-Sell the kits on Gumroad. Let the storefront + email sequence do the work.
+**Option 3 — Email nurture (already wired):**  
+Free checklist → 5-email sequence → bundle with code **BUNDLE20**.
 
-The **Complete AI Business Launch Kit ($97)** has the business plan, Fiverr gig, outreach templates, all prompts, and automation playbook.
+The **Complete AI Business Launch Kit ($97)** has the passive playbook, content calendar, all prompts, and automation guides.
 
 → https://rainecloud0.gumroad.com/l/znalyo
 
 — Cameron
 
-P.S. Reply to this email with your target niche and I'll tell you which option fits best.
+P.S. Reply with your niche and I'll suggest 3 Pinterest keywords to target first.
 
 ---
 

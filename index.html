@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michiana AI Solutions — Automated Digital Product Store</title>
     <meta name="description" content="Self-serve AI business launch kits for local service entrepreneurs. Instant delivery, automated sales, built with Grok.">
+    <meta property="og:title" content="Michiana AI Solutions — AI Launch Kits">
+    <meta property="og:description" content="Buy once, download instantly. Chatbot prompts, demo websites, and full launch kits — automated checkout and email nurture included.">
+    <meta property="og:image" content="https://raine5600.github.io/michiana-ai-store/og-image.png">
+    <meta property="og:url" content="https://raine5600.github.io/michiana-ai-store/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Michiana AI Solutions — AI Launch Kits">
+    <meta name="twitter:description" content="Turnkey AI launch kits. Gumroad checkout, instant delivery, 5-email nurture sequence.">
+    <meta name="twitter:image" content="https://raine5600.github.io/michiana-ai-store/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -46,6 +55,20 @@
                         <i class="fa-solid fa-robot text-sm"></i> Ask AI
                     </button>
                 </div>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Open menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-slate-800 mt-2 pt-3">
+                <div class="flex flex-col gap-1 text-sm">
+                    <a href="#products" onclick="toggleMobileMenu()" class="px-4 py-2.5 hover:text-white text-slate-400">Products</a>
+                    <a href="#email-capture" onclick="toggleMobileMenu()" class="px-4 py-2.5 hover:text-white text-slate-400">Free Guide</a>
+                    <a href="#demo" onclick="toggleMobileMenu()" class="px-4 py-2.5 hover:text-white text-slate-400">Live Demo</a>
+                    <a href="#automation" onclick="toggleMobileMenu()" class="px-4 py-2.5 hover:text-white text-slate-400">Automation</a>
+                    <button onclick="toggleMobileMenu();openChat()" class="mx-4 mt-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-robot text-sm"></i> Ask AI
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -57,7 +80,7 @@
             <span>Automated storefront • Built with Grok • Set &amp; forget ready</span>
         </div>
         <h1 class="section-header heading">Sell AI Launch Kits<br><span class="text-emerald-400">While You Sleep</span></h1>
-        <p class="mt-5 text-lg text-slate-400 max-w-2xl mx-auto">Self-serve checkout, instant file delivery, email nurture, and upsell paths — all pre-wired. Connect Gumroad + ConvertKit and go live in one afternoon.</p>
+        <p class="mt-5 text-lg text-slate-400 max-w-2xl mx-auto">Turnkey kits for launching AI-powered local businesses. Buy once, download instantly — checkout, delivery, and email nurture already wired. No calls, no custom work.</p>
         <div class="flex flex-wrap justify-center gap-3 mt-8">
             <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-full text-base transition-all">
                 Shop Digital Kits
@@ -123,7 +146,7 @@
                     <li><strong class="text-slate-300">Day 0:</strong> Deliver checklist + plumber demo link</li>
                     <li><strong class="text-slate-300">Day 1:</strong> "3 local businesses earning with AI chatbots" → Prompts Pack ($47)</li>
                     <li><strong class="text-slate-300">Day 3:</strong> Demo walkthrough case study → Website Starter ($67)</li>
-                    <li><strong class="text-slate-300">Day 5:</strong> "How to sell on Fiverr" + gig text snippet → Complete Kit ($97)</li>
+                    <li><strong class="text-slate-300">Day 5:</strong> "Traffic without cold calls" — Pinterest + SEO playbook → Complete Kit ($97)</li>
                     <li><strong class="text-slate-300">Day 7:</strong> Bundle urgency + discount code BUNDLE20 → Ultimate Bundle ($147)</li>
                 </ol>
             </details>
@@ -134,9 +157,9 @@
     <section id="demo" class="max-w-6xl mx-auto px-6 py-14">
         <div class="grid md:grid-cols-2 gap-10 items-center">
             <div>
-                <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">Client Pitch Demo</span>
+                <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">Included in Website Kit</span>
                 <h2 class="section-header heading mt-2">Live Plumber Website + Chatbot</h2>
-                <p class="text-slate-400 mt-4 text-sm leading-relaxed">Fully functional HTML demo from your kit. Use in sales calls, Fiverr portfolio, or cold outreach. Chat simulates real booking flows.</p>
+                <p class="text-slate-400 mt-4 text-sm leading-relaxed">Fully functional HTML demo included in the Website Starter Pack. White-label it, embed the chatbot prompt, and launch your own niche site. Chat simulates real booking flows.</p>
                 <a href="sample_plumber_website_demo.html" target="_blank"
                    class="inline-flex items-center gap-3 mt-6 px-7 py-3.5 bg-white text-slate-950 font-bold rounded-full hover:bg-slate-100 transition-all text-sm">
                     Open Interactive Demo <i class="fa-solid fa-external-link-alt"></i>
@@ -207,17 +230,17 @@
 
             <div class="mt-8 p-5 bg-emerald-950/30 border border-emerald-800/50 rounded-2xl text-center text-sm">
                 <div class="font-semibold text-emerald-300">Post-setup time commitment: ~30 min/week</div>
-                <div class="text-slate-400 text-xs mt-1">Review sales sheet, respond to custom service inquiries ($499+ Fiverr packages) only.</div>
+                <div class="text-slate-400 text-xs mt-1">Review sales sheet, post one piece of content, answer buyer emails. ~1 hour/week — fully passive.</div>
             </div>
         </div>
     </section>
 
-    <!-- Service upsell -->
+    <!-- Passive income path -->
     <section class="max-w-4xl mx-auto px-6 py-14 text-center">
-        <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase">Semi-Automated Service Layer</span>
-        <h2 class="heading font-bold text-2xl mt-2">Done-For-You Client Builds</h2>
-        <p class="text-slate-400 text-sm mt-3 max-w-lg mx-auto">Digital products sell themselves. For $499–$999 custom website + chatbot builds, use the Fiverr gig in your kit.</p>
-        <a href="fiverr_gig_and_outreach_kit.md" class="inline-block mt-5 text-emerald-400 text-sm font-semibold hover:underline">Open Fiverr + Outreach Kit →</a>
+        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase">100% Passive Path</span>
+        <h2 class="heading font-bold text-2xl mt-2">Set It Up Once, Sell While You Sleep</h2>
+        <p class="text-slate-400 text-sm mt-3 max-w-lg mx-auto">Gumroad delivers files automatically. ConvertKit nurtures leads. Pinterest and SEO bring traffic. Your only weekly task: one post from the content calendar.</p>
+        <a href="passive_weekly_playbook.md" class="inline-block mt-5 text-emerald-400 text-sm font-semibold hover:underline">Open Passive Weekly Playbook →</a>
     </section>
 
     <!-- Footer -->
@@ -467,8 +490,8 @@
                 r = "Open <a href='sample_plumber_website_demo.html' target='_blank' class='text-emerald-400 underline'>sample_plumber_website_demo.html</a> — fully interactive booking chat. Perfect for client pitches.";
             } else if (l.match(/email|nurture|sequence|checklist|free/)) {
                 r = "Grab the free AI Launch Checklist in the email section — triggers a 5-email nurture sequence over 7 days, each pitching a different kit. Fully automated via ConvertKit.";
-            } else if (l.match(/fiverr|service|client|499|799/)) {
-                r = "For done-for-you client builds ($499–$999), open <code>fiverr_gig_and_outreach_kit.md</code>. Digital kits sell themselves; services need your delivery using the templates.";
+            } else if (l.match(/passive|traffic|pinterest|seo|content/)) {
+                r = "Open <code>passive_weekly_playbook.md</code> — ~1 hr/week: one Pinterest pin or blog post, check sales, answer buyer emails. No calls required.";
             } else if (l.match(/buy|purchase|checkout|get/)) {
                 r = "Which kit? Say <em>kit</em>, <em>prompts</em>, <em>website</em>, or <em>bundle</em> and I'll open checkout.";
             } else if (l.match(/\b(kit|prompts|website|bundle)\b/)) {
@@ -476,10 +499,14 @@
                 startCheckout(key);
                 r = `Opening checkout for <strong>${PRODUCTS[key].name}</strong> ($${PRODUCTS[key].price})...`;
             } else {
-                r = "I can help with pricing, the live demo, automation setup, email nurture, or Fiverr services. What would you like to know?";
+                r = "I can help with pricing, the live demo, automation setup, email nurture, or passive traffic tips. What would you like to know?";
             }
             addChatMsg(r, false);
         }, 500);
+    }
+
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
     }
 
     // ─── Boot ───
